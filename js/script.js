@@ -4,6 +4,7 @@ var randomWordsArray = ['cat', 'bags', 'dugout', 'onsites'];
 var wordToGuess = randomWordsArray[Math.floor(Math.random() * randomWordsArray.length)].split('');
 var guesses = Array(wordToGuess.length).fill('*')
 var x;
+var misses = 0;
 
 
 
@@ -21,8 +22,9 @@ var blanks = document.getElementById('wrong');
 blanks.textContent = guesses.join('');
 var inputElement = document.querySelector('[name="input"]');
 var btnEl = document.querySelector("button");
-// var letter = document.getElementById('letter').value;
 var pEl = document.getElementById('text');
+
+var body = ['head', 'shoulders', 'leftarm', 'rightarm', 'torso', 'leftleg', 'rightleg'];
 
 
 
@@ -38,8 +40,16 @@ btnEl.addEventListener("click", function (e) {
     pEl.textContent = inputString;
     checkAnswer(textInput);
     console.log(inputString);
-    textInput.value = ''
+    textInput.value = '';
+    checkWinner();
 });
+
+// letterGuess.addEventListener('keypress', function(e){
+//     let key = e.which || e.keyCode;
+//     if (key === 13) { 
+//         mainGame();
+//     }
+// });
 
 
 
@@ -53,15 +63,48 @@ function checkAnswer(letter) {
             if (wordToGuess[i] === letter) {
                 guesses[i] = letter;
                 blanks.textContent = guesses.join('');
-            } 
+            }
         }
     } else {
-        head.style.backgroundColor = 'white'; //how to remove other apendeges 
+        var bodyPart = document.createElement('p');
+        bodyPart.setAttribute('id', body[misses]);// body[0];
+        misses = misses + 1;
+        document.getElementsByTagName("main")[0].appendChild(bodyPart);
     }
-    // checkWinner();
 };
 
-//function checkWinner();
-// if(wordToGuess === guesses){
-//
-//}
+function checkWinner(){
+    if(misses >= 7){
+        document.getElementById('head').textContent = 'You died!!!';
+    } else if (!(guesses.includes('*'))){
+        alert('you win!')
+    }
+}
+
+
+//one function to determine if winner or loser.  Call this function at the end of the check answer. 
+
+// function checkWinner() {
+//     let winFlag = false;
+//     for (let i = 0; i < guesses.length; i++) {
+//         if (!(guesses[i].includes('*'))) {
+//             // document.getElementById('head').textContent = 'You win!!!';
+//             flag = true;
+//             console.log(guesses);
+//             var guessedRight = document.getElementById('wrong').textContent;
+//             if (misses >= 7) {
+//                 document.getElementById('head').textContent = 'You died!!!';
+//             } else if (winFlag === true); {
+//                 alert('you win');
+//             };
+
+//         }
+//     }
+// }
+
+// function checkWinner(){
+//     winFlag = false;
+//     if ((guesses[i].includes('*')))
+// }
+
+

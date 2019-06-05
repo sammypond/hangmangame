@@ -1,16 +1,13 @@
-header, main, footer {
-    width: 70%;
-    height: 200px;
-    border: 1px dashed hotpink;
-    margin: 1em auto;
-}
-
 #head {
     height: 120px;
     width: 120px;
     background-color: blue;
     border-radius: 50%;
     margin: 0 auto;
+    top: 0;
+    position: relative;
+    font-size: 300px;
+    z-index: 100;
 }
 
 #shoulders {
@@ -19,49 +16,60 @@ header, main, footer {
     background-color: blue;
     border-radius: 20% 20% 20% 20%;
     margin: 0 auto;
+    position: relative;
 }
 
 #leftarm {
     width: 60px;
     height: 200px;
     background-color: blue; 
-    margin-left: 31%;
-    margin-top: -5%;
     transform: rotate(22deg); 
+    position: relative;
+    margin-top: -30px;
+    margin-left: 15px;
 }
 
 #rightarm {
     width: 60px;
     height: 200px;
     background-color: blue; 
-    margin-left: 62.5%;
-    margin-top: -23%;
     transform: rotate(155deg); 
+    margin-top: -208px;
+    margin-left: 315px;
 }
 
 #torso {
     height: 300px;
     width: 180px;
     background-color: blue;
-    margin-left: 40%;
-    margin-top: -25%;
     border-radius: 20% 20% 20% 20%;
+    position: relative;
+    margin-top: -200px;
+    margin-left: 105px;
 }
 
 #leftleg {
     width: 60px;
     height: 250px; 
     background-color: blue;
-    margin-left: 36%;
-    margin-top: 0%;
     transform: rotate(20deg);
+    position: relative;
+    margin-top: -45px;
+    margin-left: 45px;
 }
 
 #rightleg {
     width: 60px;
     height: 250px; 
     background-color: blue;
-    margin-left: 59%;
-    margin-top: -30%;
     transform: rotate(155deg);
+    position: relative;
+    margin-top: -275px;
+    margin-left: 300px;
+}
+
+#wrapper {
+    max-height: 500px;
+    max-width: 400px;
+    margin-left: 400px;
 }
